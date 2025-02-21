@@ -1,10 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movies App
+## Notice to my followers 💅
+I've built this app as a test for a potential employer. 
 
-## Getting Started
+## Assignment Details
+### The task
+As a user,
+- I can search for movies and see a paginated list of results
+- I can filter search results by genre
+- I can navigate through the next and previous pages of the paginated results
+- I see the total count of search results
+- I see notable information for each search result, such as the summary, poster,
+duration, rating, etc.
 
-First, run the development server:
+I leveraged a lot of the practices promoted in the current Next.js docs.
 
-```bash
+I'm pleased with the speed using a mix of SSR and CSR.
+
+A followup feature may be to improve fallback content. 
+
+
+## Et Cetera
+<details>
+  <summary>Next.js Project Information</summary>
+  <p>This is a <a href="https://nextjs.org">Next.js</a> project bootstrapped with 
+  <a href="https://nextjs.org/docs/app/api-reference/cli/create-next-app">`create-next-app`</a>.</p>
+
+  <h2>Getting Started</h2>
+  <p>First, run the development server:</p>
+  
+  <pre><code>
 npm run dev
 # or
 yarn dev
@@ -12,25 +36,28 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+  </code></pre>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <p>Open <a href="http://localhost:3000">http://localhost:3000</a> with your browser to see the result.</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  <p>You can start editing the page by modifying <code>app/page.tsx</code>. The page auto-updates as you edit the file.</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  <p>This project uses <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts">`next/font`</a> to 
+  automatically optimize and load <a href="https://vercel.com/font">Geist</a>, a new font family for Vercel.</p>
 
-## Learn More
+  <h2>Learn More</h2>
+  <p>To learn more about Next.js, take a look at the following resources:</p>
+  <ul>
+    <li><a href="https://nextjs.org/docs">Next.js Documentation</a> - learn about Next.js features and API.</li>
+    <li><a href="https://nextjs.org/learn">Learn Next.js</a> - an interactive Next.js tutorial.</li>
+  </ul>
+  <p>You can check out <a href="https://github.com/vercel/next.js">the Next.js GitHub repository</a> - your feedback and contributions are welcome!</p>
 
-To learn more about Next.js, take a look at the following resources:
+  <h2>Deploy on Vercel</h2>
+  <p>The easiest way to deploy your Next.js app is to use the 
+  <a href="https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme">
+  Vercel Platform</a> from the creators of Next.js.</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  <p>Check out our 
+  <a href="https://nextjs.org/docs/app/building-your-application/deploying">Next.js deployment documentation</a> for more details.</p>
+</details>

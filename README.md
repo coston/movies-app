@@ -1,33 +1,66 @@
 # Movies App
-## Notice to my followers 💅
-I've built this app as a test for a potential employer. 
 
-## Assignment Details
-### The task
-As a user,
-- I can search for movies and see a paginated list of results
-- I can filter search results by genre
-- I can navigate through the next and previous pages of the paginated results
-- I see the total count of search results
-- I see notable information for each search result, such as the summary, poster,
-duration, rating, etc.
+## Overview
 
-I leveraged a lot of the practices promoted in the current Next.js docs.
+This is my implementation of a movie search app as part of an employer's take-home exercise
 
-I'm pleased with the speed using a mix of SSR and CSR.
+## Features
 
-A followup feature may be to improve fallback content. 
+- **Movie Search:**
+  Users can search for movies by keyword and view a list of results.
 
+- **Genre Filtering:**
+  Search results can be filtered by genre.
 
-## Et Cetera
+- **Pagination:**
+  The app implements next/previous pagination, allowing users to navigate through pages of results.
+
+- **Total Results Count:**
+  It displays the count of search results by calculating the total from available pages and the number of items on the last page. (See: [Future Enhancements](#highlights--future-improvements))
+
+- **Movie Details:**
+  Each search result shows key movie information, including a summary, poster, duration, rating, and more.
+
+## Technical Implementation
+
+- **Framework & Tools:**
+  The app is built using the latest versions of React with Next.js. I chose these technologies to leverage their strengths in server-side rendering, routing, and performance.
+
+- **Data Fetching & Caching:**
+  Data is fetched securely from the Movies API with error handling. I’ve implemented caching strategies via Next.js’s data fetching features to improve performance and reduce redundant API calls.
+
+- **Hybrid Rendering Approach:**
+  To balance SEO and interactivity, the app uses server-side rendering for movie details and client-side rendering for snappier perceived performance in the movies list.
+
+## Additional Considerations
+
+- **Third-Party Libraries:**
+  I have incorporated Shadcn UI components. They are found in the components/ui directory.
+
+- **Design Philosophy:**
+  While the design is straightforward (focused on functionality over flash), I prioritized code clarity, performance, and a smooth user experience.
+
+- **Highlights & Future Improvements:**
+  - **What I’m Proud Of:** This being a total demo of streamlined work with completed requirements, tests, and a good basic ci/cd workflow.
+  - **Future Enhancements:** A follow-up feature may be to improve how I handle total count of search results. This is currently page results, as movie count is not part of GET /movies a follow up request. I would go back to product to clarify this requirement. I would update GET /movies with the count rather than using another request.
+
+## Final Thoughts
+
+This implementation reflects my technical acumen and the thoughtful design choices I make when building products. I look forward to your feedback and further discussion on potential improvements or additional features.
+
+## Running the project
+
+1. Add `API_BASE_URL` to `.env`
+2. `npm run dev`
+
 <details>
-  <summary>Next.js Project Information</summary>
-  <p>This is a <a href="https://nextjs.org">Next.js</a> project bootstrapped with 
+  <summary>Common Next.js Project Information</summary>
+  <p>This is a <a href="https://nextjs.org">Next.js</a> project bootstrapped with
   <a href="https://nextjs.org/docs/app/api-reference/cli/create-next-app">`create-next-app`</a>.</p>
 
   <h2>Getting Started</h2>
   <p>First, run the development server:</p>
-  
+
   <pre><code>
 npm run dev
 # or
@@ -42,7 +75,7 @@ bun dev
 
   <p>You can start editing the page by modifying <code>app/page.tsx</code>. The page auto-updates as you edit the file.</p>
 
-  <p>This project uses <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts">`next/font`</a> to 
+  <p>This project uses <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts">`next/font`</a> to
   automatically optimize and load <a href="https://vercel.com/font">Geist</a>, a new font family for Vercel.</p>
 
   <h2>Learn More</h2>
@@ -54,10 +87,10 @@ bun dev
   <p>You can check out <a href="https://github.com/vercel/next.js">the Next.js GitHub repository</a> - your feedback and contributions are welcome!</p>
 
   <h2>Deploy on Vercel</h2>
-  <p>The easiest way to deploy your Next.js app is to use the 
+  <p>The easiest way to deploy your Next.js app is to use the
   <a href="https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme">
   Vercel Platform</a> from the creators of Next.js.</p>
 
-  <p>Check out our 
+  <p>Check out our
   <a href="https://nextjs.org/docs/app/building-your-application/deploying">Next.js deployment documentation</a> for more details.</p>
 </details>

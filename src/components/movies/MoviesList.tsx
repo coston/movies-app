@@ -10,9 +10,10 @@ import { useRouter } from "next/navigation";
 
 interface MoviesListProps {
   movies: { data: MovieSummary[]; totalPages: number };
+  totalCount: number;
 }
 
-export default function MoviesList({ movies }: MoviesListProps) {
+export default function MoviesList({ movies, totalCount }: MoviesListProps) {
   const { searchParams, updateParams } = useQueryParams();
   const router = useRouter();
   const currentPage = Number(searchParams.get("page")) || 1;
@@ -22,6 +23,23 @@ export default function MoviesList({ movies }: MoviesListProps) {
   return (
     <Card>
       <CardContent className="pt-6">
+        <div className="mb-4">
+          <p className="text-sm text-muted-foreground">
+            Showing{" "}
+            {movies.data.length > 0
+              ? (currentPage - 1) *
+                  Number(searchParams.get("limit") || movies.data.length) +
+                1
+              : 0}
+            -
+            {Math.min(
+              currentPage *
+                Number(searchParams.get("limit") || movies.data.length),
+              totalCount
+            )}{" "}
+            of {totalCount} results
+          </p>
+        </div>
         <div className="grid gap-6  xs:grid-cols-1 sm:grid-cols-3 md:grid-cols-5">
           {movies.data.map((movie) => (
             <Link

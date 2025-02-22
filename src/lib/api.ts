@@ -89,6 +89,34 @@ export async function fetchMovieById(id: string) {
   }
 }
 
+export async function fetchMoviesCount(
+  movies: MoviesResponse,
+  {
+    page,
+    limit,
+    search,
+    genre,
+  }: { page: number; limit: number; search: string; genre: string }
+): Promise<number> {
+  const totalPages = movies.totalPages;
+
+  if (!totalPages) {
+    return 0;
+  }
+
+  if (page === totalPages) {
+    return (totalPages - 1) * limit + movies.data.length;
+  } else {
+    const lastPageMovies = await fetchMovies({
+      page: totalPages,
+      limit,
+      search,
+      genre,
+    });
+    return (totalPages - 1) * limit + lastPageMovies.data.length;
+  }
+}
+
 export async function fetchGenres() {
   const query = `
 query GetGenres {

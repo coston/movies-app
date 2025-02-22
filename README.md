@@ -1,34 +1,52 @@
 # Movies App
 
-## Notice
+## Overview
 
-I built this app as a coding test from a potential employer.
+This is my implementation of a movie search app as part of an employer's take-home exercise
 
-## Build Notes
+## Features
 
-- SSR API Requests for speed and guarding resources
-- SSR Movies List and filtering for percieved speed
-- CSR Movie Details to ensure they’re fully indexable by search engines
-- Shadcn components and theming used to accelerate development (see components/ui)
+- **Movie Search:**
+  Users can search for movies by keyword and view a list of results.
 
-## Assignment Details
+- **Genre Filtering:**
+  Search results can be filtered by genre.
 
-### The task
+- **Pagination:**
+  The app implements next/previous pagination, allowing users to navigate through pages of results.
 
-As a user,
+- **Total Results Count:**
+  It displays the count of search results by calculating the total from available pages and the number of items on the last page. (See: [Future Enhancements](#highlights--future-improvements))
 
-- I can search for movies and see a paginated list of results
-- I can filter search results by genre
-- I can navigate through the next and previous pages of the paginated results
-- I see the total count of search results
-- I see notable information for each search result, such as the summary, poster,
-  duration, rating, etc.
+- **Movie Details:**
+  Each search result shows key movie information, including a summary, poster, duration, rating, and more.
 
-### Feedback
+## Technical Implementation
 
-- My goal was to push a complete demo of streamlined work with completed requirements, tests, and a good basic ci/cd workflow.
-- I'm pleased with the speed using a mix of SSR and CSR.
-- A follow-up feature may be to improve how I handle total count of search results. This is currently page results, as movie count is not part of GET /movies. I would go back to product to clarify this requirement. If needed, I would update GET /movies with the count rather than using another request.
+- **Framework & Tools:**
+  The app is built using the latest versions of React with Next.js. I chose these technologies to leverage their strengths in server-side rendering, routing, and performance.
+
+- **Data Fetching & Caching:**
+  Data is fetched securely from the Movies API with error handling. I’ve implemented caching strategies via Next.js’s data fetching features to improve performance and reduce redundant API calls.
+
+- **Hybrid Rendering Approach:**
+  To balance SEO and interactivity, the app uses server-side rendering for movie details and client-side rendering for snappy performance in the movies list.
+
+## Additional Considerations
+
+- **Third-Party Libraries:**
+  I have incorporated Shadcn UI components. They are found in the components/ui directory.
+
+- **Design Philosophy:**
+  While the design is straightforward (focused on functionality over flash), I prioritized code clarity, performance, and a smooth user experience.
+
+- **Highlights & Future Improvements:**
+  - **What I’m Proud Of:** This being a total demo of streamlined work with completed requirements, tests, and a good basic ci/cd workflow.
+  - **Future Enhancements:** A follow-up feature may be to improve how I handle total count of search results. This is currently page results, as movie count is not part of GET /movies a follow up request. I would go back to product to clarify this requirement. I would update GET /movies with the count rather than using another request.
+
+## Final Thoughts
+
+This implementation reflects my technical acumen and the thoughtful design choices I make when building products. I look forward to your feedback and further discussion on potential improvements or additional features.
 
 ## Running the project
 

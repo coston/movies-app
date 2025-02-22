@@ -1,20 +1,16 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import MoviesPage from "./page";
-import { fetchMovies, fetchGenres } from "@/lib/api";
+import { fetchMovies, fetchGenres, fetchMoviesCount } from "@/lib/api";
+import MoviesFilters from "@/components/movies/MoviesFilters";
+import MoviesList from "@/components/movies/MoviesList";
 
 jest.mock("@/lib/api", () => ({
   fetchMovies: jest.fn(),
   fetchGenres: jest.fn(),
+  fetchMoviesCount: jest.fn(),
 }));
-jest.mock("@/components/movies/MoviesFilters", () => {
-  return jest.fn(() => (
-    <div data-testid="movies-filters">Mocked MoviesFilters</div>
-  ));
-});
-jest.mock("@/components/movies/MoviesList", () => {
-  return jest.fn(() => <div data-testid="movies-list">Mocked MoviesList</div>);
-});
+jest.mock("@/components/movies/MoviesFilters");
+jest.mock("@/components/movies/MoviesList");
 
 describe("MoviesPage", () => {
   const mockMovies = [
@@ -33,6 +29,7 @@ describe("MoviesPage", () => {
   it("renders filters and movies list components", async () => {
     (fetchMovies as jest.Mock).mockResolvedValue(mockMovies);
     (fetchGenres as jest.Mock).mockResolvedValue(mockGenres);
+    (fetchMoviesCount as jest.Mock).mockResolvedValue(3);
 
     render(
       await (async () =>
@@ -49,7 +46,13 @@ describe("MoviesPage", () => {
     });
     expect(fetchGenres).toHaveBeenCalled();
 
-    expect(screen.getByTestId("movies-filters")).toBeInTheDocument();
-    expect(screen.getByTestId("movies-list")).toBeInTheDocument();
+    expect(MoviesFilters).toHaveBeenCalledWith(
+      expect.objectContaining({ genres: mockGenres }),
+      undefined
+    );
+    expect(MoviesList).toHaveBeenCalledWith(
+      expect.objectContaining({ movies: mockMovies, totalCount: 3 }),
+      undefined
+    );
   });
 });

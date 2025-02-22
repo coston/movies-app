@@ -33,25 +33,75 @@ describe("MoviesList", () => {
   });
 
   it("renders 'No movies found.' when there are no movies", () => {
-    render(<MoviesList movies={{ data: [], totalPages: 0 }} />);
+    render(<MoviesList movies={{ data: [], totalPages: 0 }} totalCount={0} />);
     expect(screen.getByText("No movies found.")).toBeInTheDocument();
   });
 
   it("renders the list of movies", () => {
-    render(<MoviesList movies={mockMovies} />);
+    render(<MoviesList movies={mockMovies} totalCount={0} />);
     expect(screen.getByText("Movie 1")).toBeInTheDocument();
     expect(screen.getByText("Movie 2")).toBeInTheDocument();
   });
 
   it("calls router.prefetch on mouse enter of a movie link", () => {
-    const { getByText } = render(<MoviesList movies={mockMovies} />);
+    const { getByText } = render(
+      <MoviesList movies={mockMovies} totalCount={0} />
+    );
     fireEvent.mouseEnter(getByText("Movie 1"));
     expect(useRouter().prefetch).toHaveBeenCalledWith("/1");
   });
 
   it("calls updateParams on page change", () => {
-    const { getByText } = render(<MoviesList movies={mockMovies} />);
+    const { getByText } = render(
+      <MoviesList movies={mockMovies} totalCount={0} />
+    );
     fireEvent.click(getByText("Next"));
     expect(useQueryParams().updateParams).toHaveBeenCalledWith({ page: 2 });
+  });
+
+  describe("MoviesList", () => {
+    beforeEach(() => {
+      (useRouter as jest.Mock).mockReturnValue({
+        prefetch: jest.fn(),
+      });
+      (useQueryParams as jest.Mock).mockReturnValue({
+        searchParams: new URLSearchParams("page=1"),
+        updateParams: jest.fn(),
+      });
+    });
+
+    it("renders 'No movies found.' when there are no movies", () => {
+      render(
+        <MoviesList movies={{ data: [], totalPages: 0 }} totalCount={0} />
+      );
+      expect(screen.getByText("No movies found.")).toBeInTheDocument();
+    });
+
+    it("renders the list of movies", () => {
+      render(<MoviesList movies={mockMovies} totalCount={2} />);
+      expect(screen.getByText("Movie 1")).toBeInTheDocument();
+      expect(screen.getByText("Movie 2")).toBeInTheDocument();
+    });
+
+    it("calls router.prefetch on mouse enter of a movie link", () => {
+      const { getByText } = render(
+        <MoviesList movies={mockMovies} totalCount={2} />
+      );
+      fireEvent.mouseEnter(getByText("Movie 1"));
+      expect(useRouter().prefetch).toHaveBeenCalledWith("/1");
+    });
+
+    it("calls updateParams on page change", () => {
+      const { getByText } = render(
+        <MoviesList movies={mockMovies} totalCount={2} />
+      );
+      fireEvent.click(getByText("Next"));
+      expect(useQueryParams().updateParams).toHaveBeenCalledWith({ page: 2 });
+    });
+
+    it("displays the correct range of results", () => {
+      render(<MoviesList movies={mockMovies} totalCount={50} />);
+      expect(screen.getByText("Showing 1-2 of 50 results")).toBeInTheDocument();
+    });
   });
 });

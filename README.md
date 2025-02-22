@@ -9,6 +9,7 @@ I built this app as a coding test from a potential employer.
 - SSR API Requests for speed and guarding resources
 - SSR Movies List and filtering for percieved speed
 - CSR Movie Details to ensure they’re fully indexable by search engines
+- Shadcn components and theming
 
 ## Assignment Details
 

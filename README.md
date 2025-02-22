@@ -30,7 +30,7 @@ This is my implementation of a movie search app as part of an employer's take-ho
   Data is fetched securely from the Movies API with error handling. I’ve implemented caching strategies via Next.js’s data fetching features to improve performance and reduce redundant API calls.
 
 - **Hybrid Rendering Approach:**
-  To balance SEO and interactivity, the app uses server-side rendering for movie details and client-side rendering for snappy performance in the movies list.
+  To balance SEO and interactivity, the app uses server-side rendering for movie details and client-side rendering for snappier perceived performance in the movies list.
 
 ## Additional Considerations
 

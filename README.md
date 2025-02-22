@@ -1,33 +1,47 @@
 # Movies App
-## Notice to my followers 💅
-I've built this app as a test for a potential employer. 
+
+## Notice
+
+I built this app as a coding test from a potential employer.
+
+## Build Notes
+
+- SSR API Requests for speed and guarding resources
+- SSR Movies List and filtering for percieved speed
+- CSR Movie Details to ensure they’re fully indexable by search engines
 
 ## Assignment Details
+
 ### The task
+
 As a user,
+
 - I can search for movies and see a paginated list of results
 - I can filter search results by genre
 - I can navigate through the next and previous pages of the paginated results
 - I see the total count of search results
 - I see notable information for each search result, such as the summary, poster,
-duration, rating, etc.
+  duration, rating, etc.
 
-I leveraged a lot of the practices promoted in the current Next.js docs.
+### Feedback
 
-I'm pleased with the speed using a mix of SSR and CSR.
+- I leveraged a lot of the practices promoted in the current Next.js docs.
+- I'm pleased with the speed using a mix of SSR and CSR.
+- A follow-up feature may be to improve how I handle total count of search results. This is currently page results, as movie count is not part of GET /movies. I would go back to product to clarify this requirement. If needed, I would update GET /movies with the count rather than using another request.
 
-A followup feature may be to improve fallback content. 
+## Running the project
 
+1. Add `API_BASE_URL` to `.env`
+2. `npm run dev`
 
-## Et Cetera
 <details>
-  <summary>Next.js Project Information</summary>
-  <p>This is a <a href="https://nextjs.org">Next.js</a> project bootstrapped with 
+  <summary>Common Next.js Project Information</summary>
+  <p>This is a <a href="https://nextjs.org">Next.js</a> project bootstrapped with
   <a href="https://nextjs.org/docs/app/api-reference/cli/create-next-app">`create-next-app`</a>.</p>
 
   <h2>Getting Started</h2>
   <p>First, run the development server:</p>
-  
+
   <pre><code>
 npm run dev
 # or
@@ -42,7 +56,7 @@ bun dev
 
   <p>You can start editing the page by modifying <code>app/page.tsx</code>. The page auto-updates as you edit the file.</p>
 
-  <p>This project uses <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts">`next/font`</a> to 
+  <p>This project uses <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts">`next/font`</a> to
   automatically optimize and load <a href="https://vercel.com/font">Geist</a>, a new font family for Vercel.</p>
 
   <h2>Learn More</h2>
@@ -54,10 +68,10 @@ bun dev
   <p>You can check out <a href="https://github.com/vercel/next.js">the Next.js GitHub repository</a> - your feedback and contributions are welcome!</p>
 
   <h2>Deploy on Vercel</h2>
-  <p>The easiest way to deploy your Next.js app is to use the 
+  <p>The easiest way to deploy your Next.js app is to use the
   <a href="https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme">
   Vercel Platform</a> from the creators of Next.js.</p>
 
-  <p>Check out our 
+  <p>Check out our
   <a href="https://nextjs.org/docs/app/building-your-application/deploying">Next.js deployment documentation</a> for more details.</p>
 </details>

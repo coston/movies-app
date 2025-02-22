@@ -8,14 +8,12 @@ jest.mock("@/lib/api", () => ({
   fetchGenres: jest.fn(),
 }));
 jest.mock("@/components/movies/MoviesFilters", () => {
-  return jest.fn(({ genres }) => (
+  return jest.fn(() => (
     <div data-testid="movies-filters">Mocked MoviesFilters</div>
   ));
 });
 jest.mock("@/components/movies/MoviesList", () => {
-  return jest.fn(({ movies }) => (
-    <div data-testid="movies-list">Mocked MoviesList</div>
-  ));
+  return jest.fn(() => <div data-testid="movies-list">Mocked MoviesList</div>);
 });
 
 describe("MoviesPage", () => {
@@ -39,7 +37,7 @@ describe("MoviesPage", () => {
     render(
       await (async () =>
         await MoviesPage({
-          searchParams: { page: "1", limit: "25" },
+          searchParams: Promise.resolve({ page: "1", limit: "25" }),
         }))()
     );
 

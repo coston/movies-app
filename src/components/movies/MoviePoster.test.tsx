@@ -2,13 +2,19 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MoviePoster from "./MoviePoster";
 import Image from "next/image";
+import { JSX, ClassAttributes, HTMLAttributes } from "react";
 
 jest.mock("next/image", () => ({
   __esModule: true,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @next/next/no-img-element, jsx-a11y/alt-text
   default: jest.fn(({ fill, ...props }) => <img {...props} />),
 }));
 jest.mock("@/components/ui/skeleton", () => ({
-  Skeleton: (props: any) => <div {...props} />,
+  Skeleton: (
+    props: JSX.IntrinsicAttributes &
+      ClassAttributes<HTMLDivElement> &
+      HTMLAttributes<HTMLDivElement>
+  ) => <div {...props} />,
 }));
 
 describe("MoviePoster", () => {
@@ -17,7 +23,6 @@ describe("MoviePoster", () => {
 
   it("renders the image when loaded", async () => {
     render(<MoviePoster posterUrl={posterUrl} title={title} />);
-    const img = screen.getByRole("img");
 
     expect(Image).toHaveBeenCalledWith(
       expect.objectContaining({

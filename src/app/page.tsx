@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function MoviesPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   const sp = await searchParams;
   const page = Number(sp.page) || 1;

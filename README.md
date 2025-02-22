@@ -26,7 +26,7 @@ As a user,
 
 ### Feedback
 
-- My goal was to push a complete demo of streamlined work with completed requirements, tests, and good ci/cd workflows.
+- My goal was to push a complete demo of streamlined work with completed requirements, tests, and a good basic ci/cd workflow.
 - I'm pleased with the speed using a mix of SSR and CSR.
 - A follow-up feature may be to improve how I handle total count of search results. This is currently page results, as movie count is not part of GET /movies. I would go back to product to clarify this requirement. If needed, I would update GET /movies with the count rather than using another request.
 

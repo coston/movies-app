@@ -10,7 +10,6 @@ interface MoviePosterProps {
 }
 
 function MoviePoster({ posterUrl, title }: MoviePosterProps) {
-  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   return (
@@ -22,13 +21,10 @@ function MoviePoster({ posterUrl, title }: MoviePosterProps) {
         alt={`${title} poster`}
         fill
         sizes="(100vw)"
-        className={`object-cover transition-opacity duration-300 ${
-          isLoading ? "opacity-0" : "opacity-100"
-        }`}
-        onLoad={() => setIsLoading(false)}
+        priority
+        className={`object-cover transition-opacity duration-300`}
         onError={() => {
           setIsError(true);
-          setIsLoading(false);
         }}
       />
     </div>

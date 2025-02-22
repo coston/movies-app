@@ -31,7 +31,13 @@ export default function MoviesFilters({ genres }: MoviesFiltersProps) {
           />
           <Select
             value={searchParams.get("genre") || "all"}
-            onValueChange={(genre) => updateParams({ genre, page: 1 })}
+            onValueChange={(genre) => {
+              const updatedGenre = genre === "all" ? "" : genre;
+              if (updatedGenre !== searchParams.get("genre")) {
+                updateParams({ genre: updatedGenre, page: 1 });
+              }
+              updateParams({ genre: updatedGenre, page: 1 });
+            }}
           >
             <SelectTrigger
               className="w-full sm:w-[180px]"

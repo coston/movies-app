@@ -16,7 +16,7 @@ This is my implementation of a movie search app as part of an employer's take-ho
   The app implements next/previous pagination, allowing users to navigate through pages of results.
 
 - **Total Results Count:**
-  It displays the count of search results by calculating the total from available pages and the number of items on the last page. (See: [Future Enhancements](#highlights--future-improvements))
+  It displays the count of search results by calculating the total from available pages and the number of items on the last page. (See: Future Enhancements)
 
 - **Movie Details:**
   Each search result shows key movie information, including a summary, poster, duration, rating, and more.

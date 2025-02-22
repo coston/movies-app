@@ -10,7 +10,7 @@ const useQueryParams = () => {
   ) => {
     const params = new URLSearchParams(searchParams);
     Object.entries(newParams).forEach(([key, value]) => {
-      if (value && value !== "all") {
+      if (value) {
         params.set(key, String(value));
       } else {
         params.delete(key);

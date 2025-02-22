@@ -33,16 +33,16 @@ describe("useQueryParams", () => {
     );
   });
 
-  it("removes query parameters when set to undefined or 'all'", () => {
+  it("removes query parameters when set to undefined", () => {
     mockUseSearchParams.mockReturnValue(
       new URLSearchParams("page=1&limit=10&search=oldValue")
     );
 
     const { result } = renderHook(() => useQueryParams());
 
-    result.current.updateParams({ search: undefined, limit: "all" });
+    result.current.updateParams({ search: undefined });
 
-    expect(mockPush).toHaveBeenCalledWith("/movies?page=1");
+    expect(mockPush).toHaveBeenCalledWith("/movies?page=1&limit=10");
   });
 
   it("adds new parameters while preserving existing ones", () => {

@@ -41,6 +41,19 @@ describe("MoviesFilters", () => {
     });
   });
 
+  it("updates the genre to an empty string when 'all' is selected", () => {
+    mockSearchParams.set("genre", "Action");
+    render(<MoviesFilters genres={genres} />);
+
+    const selectTrigger = screen.getByText("Action");
+    fireEvent.click(selectTrigger);
+
+    const genreOption = screen.getByText("All Genres");
+    fireEvent.click(genreOption);
+
+    expect(mockUpdateParams).toHaveBeenCalledWith({ genre: "", page: 1 });
+  });
+
   it("updates genre params on select change", () => {
     render(<MoviesFilters genres={genres} />);
     const selectTrigger = screen.getByText("All Genres");

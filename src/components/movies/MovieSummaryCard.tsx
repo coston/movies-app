@@ -11,9 +11,9 @@ export default function MovieSummaryCard({ movie }: { movie: MovieSummary }) {
       </div>
       <CardContent className="p-2">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-semibold text-sm line-clamp-2 flex-grow">
+          <h2 className="font-semibold text-sm line-clamp-2 flex-grow">
             {movie.title}
-          </h3>
+          </h2>
           {movie.rating && (
             <Badge variant="secondary" className="text-xs whitespace-nowrap">
               {movie.rating}

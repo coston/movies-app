@@ -33,7 +33,11 @@ export default function MoviesFilters({ genres }: MoviesFiltersProps) {
             value={searchParams.get("genre") || "all"}
             onValueChange={(genre) => updateParams({ genre, page: 1 })}
           >
-            <SelectTrigger className="w-full sm:w-[180px]" tabIndex={0}>
+            <SelectTrigger
+              className="w-full sm:w-[180px]"
+              tabIndex={0}
+              aria-label="Select Genre"
+            >
               <SelectValue placeholder="All Genres" />
             </SelectTrigger>
             <SelectContent>

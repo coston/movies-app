@@ -38,8 +38,6 @@ async function fetchWithAuth(url: string, options: RequestInit = {}) {
       },
     });
 
-    console.log({ response });
-
     if (!response.ok) {
       throw new Error(
         `Request failed with status ${response.status}: ${response.statusText}`
@@ -70,8 +68,8 @@ export async function fetchMovies(params: {
     const response = await fetchWithAuth(
       `${API_BASE_URL}/movies?${queryParams.toString()}`
     );
-
     const data = await response.json();
+
     return data;
   } catch (error) {
     console.error("Error fetching movies:", error);
